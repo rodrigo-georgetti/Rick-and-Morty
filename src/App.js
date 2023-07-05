@@ -1,24 +1,56 @@
 import "./App.css";
-import Card from "./components/Card.jsx";
-import Cards from "./components/Cards.jsx";
-import SearchBar from "./components/SearchBar.jsx";
-import characters, { Rick } from "./data.js";
+import Card from "./components/Card/Card.jsx";
+import Cards from "./components/Cards/Cards.jsx";
+import Nav from "./components/Nav/Nav";
+import { useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [characters, setCharacters] = useState([])
+
+  const onSearch = (id) =>{
+    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+    if (data.name) {
+       const exist = characters.findIndex((char) =>{
+         return char.id === Number(id)
+       })
+      if (exist === -1){
+        setCharacters((oldChars) => [...oldChars, data]);
+      } else {
+        window.alert('¡Ya existe hay un personaje con ese ID!')
+      }
+       } else {
+          window.alert('¡No hay personajes con este ID!');
+       }
+    });
+ }
+ const randomSearch = () =>{
+let random = Math.floor(Math.random() * 826) + 1
+  axios(`https://rickandmortyapi.com/api/character/${random}`).then(({ data }) => {
+  if (data.name) {
+     const exist = characters.findIndex((char) =>{
+       return char.id === Number(random)       
+     })
+    if (exist === -1){
+      setCharacters((oldChars) => [...oldChars, data]);
+    } else {
+      window.alert(`Sorteado: ${random}¡Ya existe hay un personaje con ese ID!`)
+    }
+     } 
+  });
+}
+ const onClose = (id)=>{
+const filter = characters.filter((char) =>{
+  return char.id !== Number(id)
+})
+setCharacters(filter)
+ }
+ 
+
   return (
     <div className="App">
-      <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-      <Cards characters={characters} />
-      <Card
-        id={Rick.id}
-        name={Rick.name}
-        status={Rick.status}
-        species={Rick.species}
-        gender={Rick.gender}
-        origin={Rick.origin.name}
-        image={Rick.image}
-        onClose={() => window.alert("Emulamos que se cierra la card")}
-      />
+      <Nav onSearch={onSearch} randomSearch={randomSearch}/>
+      <Cards characters={characters} onClose = {onClose}/>
     </div>
   );
 }
