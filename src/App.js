@@ -2,8 +2,13 @@ import "./App.css";
 import Card from "./components/Card/Card.jsx";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
+import About from "./components/About/About";
+import Detail from "./components/Detail/Detail";
+import Error from "./components/Error/Error";
 import { useState } from "react";
 import axios from "axios";
+import {Routes, Route, useLocation} from 'react-router-dom'
+import PathRoutes from './helpers/Routes.helper'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -46,11 +51,26 @@ const filter = characters.filter((char) =>{
 setCharacters(filter)
  }
  
-
+ const usePathname = () => {
+  
+  const location = useLocation();
+  console.log(location.pathname)
+  if (location.pathname !== PathRoutes.HOME && location.pathname !== PathRoutes.ABOUT && location.pathname !== PathRoutes.DETAIL)
+  return location.pathname;
+}
+let errorPath = usePathname()
   return (
     <div className="App">
-      <Nav onSearch={onSearch} randomSearch={randomSearch}/>
-      <Cards characters={characters} onClose = {onClose}/>
+<Nav onSearch={onSearch} randomSearch={randomSearch}/>
+<Routes>
+  
+  <Route path={errorPath} element = {<Error/>}/>
+  <Route path={PathRoutes.HOME} element= {<Cards characters={characters} onClose = {onClose}/>}/>
+  <Route path={PathRoutes.ABOUT} element= {<About/>}/>
+  <Route path={PathRoutes.DETAIL} element= {<Detail/>}/>
+
+</Routes>
+    
     </div>
   );
 }

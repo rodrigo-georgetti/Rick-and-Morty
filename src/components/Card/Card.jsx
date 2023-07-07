@@ -1,4 +1,6 @@
+import PathRoutes from "../../helpers/Routes.helper";
 import styles from "./Card.module.css";
+import { Link } from "react-router-dom";
 
 export default function Card(props) {
   const { id,name, status, species, gender, origin, image, onClose } = props;
@@ -7,7 +9,9 @@ export default function Card(props) {
     <div className={styles.card}>
       <button onClick={()=>{onClose(id)}}> X </button>
       <div className={styles.wrapperText}>
-      <h1 className={styles.name}> {name} </h1>
+        <Link to={`${PathRoutes.DETAILID}${id}`}>
+        <h1 className={styles.name}> {name} </h1>
+        </Link>
       <div className={styles.details}>
         <h2> {status} </h2>
         <h2> {species} </h2>
