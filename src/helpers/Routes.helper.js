@@ -1,16 +1,12 @@
 import { useLocation } from "react-router-dom";
 
-const usePathname = () => {
-    const location = useLocation();
-    console.log(location.pathname)
-    return location.pathname;
-  }
+
  const PathRoutes = {
+  LOGIN: '/',
 HOME : '/home',
 ABOUT : '/about',
 DETAILID : '/detail/',
 DETAIL : '/detail/:id'
-//ERROR : usePathname
 }
 
 

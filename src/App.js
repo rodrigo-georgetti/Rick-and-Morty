@@ -1,18 +1,33 @@
+// * React & config
 import "./App.css";
+import { useState , useEffect} from "react";
+import axios from "axios";
+import {Routes, Route, useLocation, useNavigate} from 'react-router-dom'
+import PathRoutes from './helpers/Routes.helper'
+// * Components
 import Card from "./components/Card/Card.jsx";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Error from "./components/Error/Error";
-import { useState } from "react";
-import axios from "axios";
-import {Routes, Route, useLocation} from 'react-router-dom'
-import PathRoutes from './helpers/Routes.helper'
+import Form from "./components/Form/Form";
+
 
 function App() {
+  const {pathname} = useLocation()
   const [characters, setCharacters] = useState([])
-
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+  const EMAIL = 'ejemplo@gmail.com';
+  const PASSWORD = 'rodrigo1';
+  
+  function login(userData) {
+     if (userData.password === PASSWORD && userData.email === EMAIL) {
+        setAccess(true);
+        navigate('/home');
+     }
+  }
   const onSearch = (id) =>{
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
     if (data.name) {
@@ -50,21 +65,18 @@ const filter = characters.filter((char) =>{
 })
 setCharacters(filter)
  }
+ useEffect(() => {
+  !access && navigate('/');
+}, [access]);
  
- const usePathname = () => {
-  
-  const location = useLocation();
-  console.log(location.pathname)
-  if (location.pathname !== PathRoutes.HOME && location.pathname !== PathRoutes.ABOUT && location.pathname !== PathRoutes.DETAIL)
-  return location.pathname;
-}
-let errorPath = usePathname()
+ 
+
   return (
     <div className="App">
-<Nav onSearch={onSearch} randomSearch={randomSearch}/>
+{pathname !== PathRoutes.LOGIN && <Nav onSearch={onSearch} randomSearch={randomSearch}/>}
 <Routes>
   
-  <Route path={errorPath} element = {<Error/>}/>
+  <Route path={PathRoutes.LOGIN} element={<Form login={login}/>}/>
   <Route path={PathRoutes.HOME} element= {<Cards characters={characters} onClose = {onClose}/>}/>
   <Route path={PathRoutes.ABOUT} element= {<About/>}/>
   <Route path={PathRoutes.DETAIL} element= {<Detail/>}/>
