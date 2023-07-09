@@ -14,6 +14,9 @@ const Nav = (props) => {
         <NavLink to={PathRoutes.ABOUT}>
         About
         </NavLink>
+        <NavLink to={'/favorites'}>
+        Favorites
+        </NavLink>
       <SearchBar onSearch={onSearch} randomSearch={randomSearch}/>
     </div>
   )

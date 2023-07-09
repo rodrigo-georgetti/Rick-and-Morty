@@ -10,7 +10,7 @@ if (!data.email) {
 
 if (data.password.length<6 || data.password.length>10) {
     errors.password1 = 'El password debe tener entre 6 y 10 caracteres'
-} else if (!/.*\d+.*/.test(data.email) ) {
+} else if (!/.*\d+.*/.test(data.password) ) {
     errors.password2 = 'El password debe tener al menos 1 número'
 }
 return errors

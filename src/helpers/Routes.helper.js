@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 
 
  const PathRoutes = {
@@ -6,7 +5,8 @@ import { useLocation } from "react-router-dom";
 HOME : '/home',
 ABOUT : '/about',
 DETAILID : '/detail/',
-DETAIL : '/detail/:id'
+DETAIL : '/detail/:id',
+FAVORITES : '/favorites'
 }
 
 
