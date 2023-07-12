@@ -1,45 +1,56 @@
-import React, { useState } from 'react'
-import {styles} from './Form.module.css'
-import validator from './validation'
+import { useState } from "react";
+import styles from "./Form.module.css";
+import validation from "./validation";
+
 const Form = (props) => {
-    const {login} = props
-    const [userData, setUserData] = useState({
-        email : '',
-        password : '',
-    })
-const [errors, setErrors] = useState({})
+  const { login } = props;
+  const [userData, setUserData] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({});
 
-    const handleChange = ( event) =>{
-        setErrors(validator({...userData, [event.target.name]: event.target.value}))
-setUserData({...userData, [event.target.name]: event.target.value})
-    }
+  const handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+    setErrors(validation({ ...userData, [e.target.name]: e.target.value }));
+  };
 
-    const handleSubmit = (event) =>{
-event.preventDefault()
-login(userData)
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(userData);
+  };
+
   return (
-    
     <div>
       <form onSubmit={handleSubmit}>
-        <div>
-        <label >Email</label>
-        <input  type='text' value={userData.email} name = 'email' onChange={handleChange}/>
-        {errors.email1 ? (<p>{errors.email1}</p>) 
-        : errors.email2 ?  (<p>{errors.email2}</p>)
-:        (<p>{errors.email3}</p>)
-        }
-        </div>
-        <div>
-        <label >Password</label>
-        <input type='text' value={userData.password} name = 'password' onChange={handleChange}/> 
-        {errors.password1 ? (<p>{errors.password1}</p>)
-        : (<p>{errors.password2}</p>)}
-        </div>
-        <button type='submit'>Submit</button>
+        {/* USERNAME */}
+        <label htmlFor="">Email</label>
+        <input
+          type="text"
+          placeholder="Email..."
+          name="email"
+          onChange={handleChange}
+          value={userData.email}
+        />
+        {errors.e1 ? (
+          <p>{errors.e1}</p>
+        ) : errors.e2 ? (
+          <p>{errors.e2}</p>
+        ) : (
+          <p>{errors.e3}</p>
+        )}
+
+        {/* PASSWORD */}
+        <label htmlFor="">Password</label>
+        <input
+          type="password"
+          placeholder="Password..."
+          name="password"
+          onChange={handleChange}
+          value={userData.password}
+        />
+        {errors.p1 ? <p>{errors.p1}</p> : <p>{errors.p2}</p>}
+        <button>LOGIN</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

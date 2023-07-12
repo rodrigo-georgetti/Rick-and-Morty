@@ -3,9 +3,8 @@ import styles from "./Cards.module.css";
 
 export default function Cards(props) {
   const { characters, onClose } = props;
-
   return (
-    <div className={styles.cards}>
+    <div className={styles.mainDiv}>
       {characters.map((char) => {
         return (
           <Card

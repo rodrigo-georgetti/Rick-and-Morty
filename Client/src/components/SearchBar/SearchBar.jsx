@@ -1,19 +1,31 @@
-import styles from "./SearchBar.module.css"
 import { useState } from "react";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar(props) {
-  const { onSearch, randomSearch } = props;
-const [id, setId] = useState('')
-const handleChange = (event )=>{
-setId(event.target.value)
-}
+  const { onSearch } = props;
+
+  const [id, setId] = useState("");
+
+  const handleChange = (e) => {
+    setId(e.target.value);
+  };
+
   return (
-    <div>
-      <input type="search"
-      onChange={handleChange} value={id}
+    <div className={styles.wrapperSearch}>
+      <input
+        className={styles.input}
+        type="search"
+        onChange={handleChange}
+        value={id}
       />
-      <button onClick={()=>{onSearch(id)}}>Add Character</button>
-      <button onClick={()=>{randomSearch()}}>Random Character</button>
+      <button
+        className={styles.btn}
+        onClick={() => {
+          onSearch(id);
+        }}
+      >
+        Search
+      </button>
     </div>
   );
 }

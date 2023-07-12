@@ -1,18 +1,29 @@
-const validator = (data ) =>{
-let errors = {}
-if (!data.email) {
-    errors.email1 = 'Ingresa un email'
-} else if (data.email.length > 35) {
-    errors.email2 = 'El email debe tener 35 caracteres como maximo'
-} else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email)) {
-    errors.email3 = 'formato inválido de email'
+const validation = (data) => {
+    let errors = {};
+
+    // EMAIL VALIDATIONS
+    if (!data.email.includes('@')) {
+        errors.e1 = 'Ingresa un email valido.'
+    }
+
+    if (!data.email) {
+        errors.e2 = 'Ingresa un email'
+    }
+
+    if (data.email.length > 35) {
+        errors.e3 = 'No debe ser mayor a 35 caracteres'
+    }
+
+    // PASSWORD VALIDATIONS
+    if (!/\d+/.test(data.password)) {
+        errors.p1 = 'Al menos un número'
+    }
+
+    if (data.password.length < 6 || data.password.length > 10) {
+        errors.p2 = 'Debe tener entre 6 y 10 caracteres'
+    }
+
+    return errors;
 }
 
-if (data.password.length<6 || data.password.length>10) {
-    errors.password1 = 'El password debe tener entre 6 y 10 caracteres'
-} else if (!/.*\d+.*/.test(data.password) ) {
-    errors.password2 = 'El password debe tener al menos 1 número'
-}
-return errors
-}
-export default validator
+export default validation;
