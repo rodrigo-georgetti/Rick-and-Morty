@@ -18,7 +18,13 @@
 // const express = require('express');
 // const server = express();
 const PORT = 3001;
-const server = require('./app')
+const server = require("./app");
+const { conn } = require('./DB_connection');
+conn.sync({force:true}).then(()=>{
+  server.listen(PORT, () => {
+    console.log("Server raised in port: " + PORT);
+  });
+})
 // const router = require('./routes/index')
 
 // server.use((req, res, next) => {
@@ -38,8 +44,4 @@ const server = require('./app')
 // server.use(express.json());
 // server.use('/rickandmorty', router)
 
-
-server.listen(PORT, () => {
-    console.log('Server raised in port: ' + PORT);
-});
 
