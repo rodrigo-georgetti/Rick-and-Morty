@@ -1,8 +1,8 @@
-.divFavorites{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: space-around;
-    padding-top: 25px;
+.divFavorites {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: space-around;
+  padding-top: 25px;
 }

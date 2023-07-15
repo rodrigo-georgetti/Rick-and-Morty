@@ -19,42 +19,39 @@ const Form = (props) => {
 
   return (
     <div className={styles.divForm}>
-      <form  className={styles.Form} onSubmit={handleSubmit}>
-        {/* USERNAME */}
+      <form className={styles.Form} onSubmit={handleSubmit}>
         <div className={styles.divEmail}>
-        <label className={styles.labelEmail}>Email</label>
-        <input  className={styles.inputEmail} 
-          type="text"
-          placeholder="Email..."
-          name="email"
-          onChange={handleChange}
-          value={userData.email}
-        />
-        {errors.e1 ? (
-          <p>{errors.e1}</p>
-        ) : errors.e2 ? (
-          <p>{errors.e2}</p>
-        ) : (
-          <p>{errors.e3}</p>
-        )}
-
+          <label className={styles.labelEmail}>Email</label>
+          <input
+            className={styles.inputEmail}
+            type="text"
+            placeholder="Email..."
+            name="email"
+            onChange={handleChange}
+            value={userData.email}
+          />
+          {errors.e1 ? (
+            <p>{errors.e1}</p>
+          ) : errors.e2 ? (
+            <p>{errors.e2}</p>
+          ) : (
+            <p>{errors.e3}</p>
+          )}
         </div>
         <div className={styles.divPassword}>
-          {/* PASSWORD */}
-        <label className={styles.labelPassword}>Password</label>
-        <input
-          type="password"
-          placeholder="Password..."
-          name="password"
-          onChange={handleChange}
-          value={userData.password}
-        />
-        {errors.p1 ? <p>{errors.p1}</p> : <p>{errors.p2}</p>}
+          <label className={styles.labelPassword}>Password</label>
+          <input
+            type="password"
+            placeholder="Password..."
+            name="password"
+            onChange={handleChange}
+            value={userData.password}
+          />
+          {errors.p1 ? <p>{errors.p1}</p> : <p>{errors.p2}</p>}
         </div>
         <div className={styles.divLogin}>
-        <button className={styles.Button}>LOGIN</button>
+          <button className={styles.Button}>LOGIN</button>
         </div>
-        
       </form>
     </div>
   );

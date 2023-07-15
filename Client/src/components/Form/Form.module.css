@@ -1,60 +1,63 @@
-.divForm{
-    padding-top: 50px;
-    padding-left: 350px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
+.divForm {
+  padding-top: 50px;
+  padding-left: 350px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
 }
 
-.Form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.divEmail{
-    display: flex;
-    
+.divEmail {
+  display: flex;
 }
-.divPassword{
-    display: flex;
-    margin: 15px;
+
+.divPassword {
+  display: flex;
+  margin: 15px;
 }
-.divLogin{
-    display: flex;
+
+.divLogin {
+  display: flex;
 }
-.labelEmail{
-    
-    -webkit-text-stroke: 2px;
-    -webkit-text-stroke-color: rgb(72, 177, 72);
-    font-size: 35px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: inline-block;
+
+.labelEmail {
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: rgb(72, 177, 72);
+  font-size: 35px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: inline-block;
 }
-.labelPassword{
-    -webkit-text-stroke: 2px;
-    -webkit-text-stroke-color: rgb(72, 177, 72);
-    font-size: 35px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: inline-block;
+
+.labelPassword {
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: rgb(72, 177, 72);
+  font-size: 35px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: inline-block;
 }
-.inputEmail{
-    display: inline-block;
+
+.inputEmail {
+  display: inline-block;
 }
-.inputPassword{
-    display: inline-block;
-    
+
+.inputPassword {
+  display: inline-block;
 }
-.Button{
-    border-radius: 5px;
-    width: 100px;
-    height: 30px;
-    -webkit-text-stroke: 2px;
-    -webkit-text-stroke-color: rgb(72, 177, 72);
-    font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: inline-block;
+
+.Button {
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: rgb(72, 177, 72);
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: inline-block;
 }

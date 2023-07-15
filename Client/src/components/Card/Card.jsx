@@ -37,9 +37,13 @@ function Card(props) {
   return (
     <div className={styles.wrapperCard}>
       {isFav ? (
-        <button className={styles.button} onClick={handleFavorite}>❤️</button>
+        <button className={styles.button} onClick={handleFavorite}>
+          ❤️
+        </button>
       ) : (
-        <button className={styles.button} onClick={handleFavorite}>🤍</button>
+        <button className={styles.button} onClick={handleFavorite}>
+          🤍
+        </button>
       )}
       <button
         className={styles.btn}

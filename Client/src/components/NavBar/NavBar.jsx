@@ -4,7 +4,7 @@ import styles from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
-  const { onSearch } = props;
+  const { onSearch } = props; 
 
   return (
     <div className={styles.navbar}>

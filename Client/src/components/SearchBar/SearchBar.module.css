@@ -1,34 +1,32 @@
-
-.wrapperSearch{
-    
-    width: 300px;
-    height: 30px;
-    background-color: rgb(224, 223, 223);
-    position: relative;
-    border-radius: 5px;
-    margin: 0 50px 0px 20px;
+.wrapperSearch {
+  width: 300px;
+  height: 30px;
+  background-color: rgb(224, 223, 223);
+  position: relative;
+  border-radius: 5px;
+  margin: 0 50px 0px 20px;
 }
-.input{
-    width: 80%;
-    height: 100%;
-    position: absolute;
-    border: none;
-    background-color: transparent;
-    
+
+.input {
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  border: none;
+  background-color: transparent;
 }
 
 .input:focus {
-    outline: none;
-    padding-left: 10px;
-  }
+  outline: none;
+  padding-left: 10px;
+}
 
-.btn{
-    position: absolute;
-    border-radius: 5px;
-    border: none;
-    background-color: transparent;
-    right: 0;
-    height: 100%;
-    color: rgb(15, 162, 182);
-    cursor: pointer;
+.btn {
+  position: absolute;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  right: 0;
+  height: 100%;
+  color: rgb(15, 162, 182);
+  cursor: pointer;
 }
