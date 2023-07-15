@@ -1,0 +1,23 @@
+.divDetail{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    line-height: 0px;
+    letter-spacing: 3px;
+    color: rgb(6, 3, 24);
+    gap: 20px;
+    justify-content:space-evenly;
+    padding-top: 20px;
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.image{
+    width: 300px;
+    height: 400px;
+    margin: auto;
+}

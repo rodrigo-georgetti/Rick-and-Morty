@@ -18,7 +18,7 @@ const Favorites = (props) => {
   };
 
   return (
-    <div>
+    <div className={styles.divFavorites}>
       <div>
         <select onChange={handleOrder}>
           <option value="A">Ascendente</option>

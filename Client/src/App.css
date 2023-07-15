@@ -1,8 +1,10 @@
 .App {
    /* text-align: center; */
-   width: 100vw;
-   height: 100vh;
-   background-image: URL('./images/stars.png');
-   background-repeat: no-repeat;
-   background-size: cover;
+   width: 98.5vw;
+   height:100vw;
+   background-image: URL('./images/rymBackground.jpg');
+    /* background-repeat: no-repeat; */
+   /* background-size:cover;  */
+   background-attachment: fixed;
+   opacity: .9;
 }

@@ -18,11 +18,12 @@ const Form = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.divForm}>
+      <form  className={styles.Form} onSubmit={handleSubmit}>
         {/* USERNAME */}
-        <label htmlFor="">Email</label>
-        <input
+        <div className={styles.divEmail}>
+        <label className={styles.labelEmail}>Email</label>
+        <input  className={styles.inputEmail} 
           type="text"
           placeholder="Email..."
           name="email"
@@ -37,8 +38,10 @@ const Form = (props) => {
           <p>{errors.e3}</p>
         )}
 
-        {/* PASSWORD */}
-        <label htmlFor="">Password</label>
+        </div>
+        <div className={styles.divPassword}>
+          {/* PASSWORD */}
+        <label className={styles.labelPassword}>Password</label>
         <input
           type="password"
           placeholder="Password..."
@@ -47,7 +50,11 @@ const Form = (props) => {
           value={userData.password}
         />
         {errors.p1 ? <p>{errors.p1}</p> : <p>{errors.p2}</p>}
-        <button>LOGIN</button>
+        </div>
+        <div className={styles.divLogin}>
+        <button className={styles.Button}>LOGIN</button>
+        </div>
+        
       </form>
     </div>
   );

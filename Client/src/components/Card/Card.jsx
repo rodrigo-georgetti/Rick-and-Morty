@@ -37,9 +37,9 @@ function Card(props) {
   return (
     <div className={styles.wrapperCard}>
       {isFav ? (
-        <button onClick={handleFavorite}>❤️</button>
+        <button className={styles.button} onClick={handleFavorite}>❤️</button>
       ) : (
-        <button onClick={handleFavorite}>🤍</button>
+        <button className={styles.button} onClick={handleFavorite}>🤍</button>
       )}
       <button
         className={styles.btn}
@@ -47,7 +47,7 @@ function Card(props) {
           onClose(id);
         }}
       >
-        Delete
+        X
       </button>
       <img src={image} alt="character" />
       <div className={styles.wrapperText}>
